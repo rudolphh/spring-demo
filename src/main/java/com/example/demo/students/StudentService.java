@@ -7,4 +7,5 @@ public interface StudentService {
     List<Student> getStudents();
     void addNew(Student student);
     void deleteStudent(Long id);
+    void updateStudent(Long id, Student student);
 }

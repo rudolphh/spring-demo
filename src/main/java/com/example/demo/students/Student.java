@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-@NoArgsConstructor @RequiredArgsConstructor
+@NoArgsConstructor
 @Getter @Setter @ToString
 @Entity @Table(name="students")
 public class Student {
@@ -20,20 +20,23 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @NonNull
     private String name;
 
-    @NonNull
     private String email;
 
-    @NonNull
     private LocalDate dob;
 
     @Transient
     private Integer age;
 
-    public Student(Long id, @NonNull String name, @NonNull String email, @NonNull LocalDate dob) {
+    public Student(Long id, String name, String email, LocalDate dob) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.dob = dob;
+    }
+
+    public Student(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
